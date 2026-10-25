@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Mann Computer is a research and product studio building persistent agents and the simulated organizations they work in.">
+<meta name="color-scheme" content="light dark">
+<title>Mann Computer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one narrow left-aligned column, a ledger of projects, nothing else. */
+:root {
+  --bg: #f6f7f9;
+  --fg: #15171c;
+  --muted: #5d6370;
+  --rule: #dde0e6;
+  --accent: #2f45c4;
+  --chip: #e9ecf3;
+  --display: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1115; --fg: #e8eaef; --muted: #8d93a1; --rule: #252932; --accent: #8c9cff; --chip: #1b1f27;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1115; --fg: #e8eaef; --muted: #8d93a1; --rule: #252932; --accent: #8c9cff; --chip: #1b1f27;
+  color-scheme: dark;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--body);
+  font-size: 1rem;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color .2s ease, color .2s ease;
+}
+.page {
+  max-width: 44rem;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 2rem 4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4.5rem;
+}
+
+header { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.mark { font-family: var(--body); font-size: .9375rem; font-weight: 600; letter-spacing: -.01em; }
+.mark span { color: var(--accent); }
+
+.toggle {
+  font: inherit; font-family: var(--display); font-size: .6875rem; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--muted); background: transparent; border: 1px solid var(--rule); border-radius: 999px;
+  padding: .4rem .75rem; cursor: pointer; display: inline-flex; align-items: center; gap: .5rem;
+}
+.toggle:hover { color: var(--fg); border-color: var(--muted); }
+.toggle:focus-visible, .copy:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.dot { width: .55rem; height: .55rem; border-radius: 50%; border: 1px solid currentColor; background: linear-gradient(90deg, currentColor 50%, transparent 50%); }
+
+.intro { display: flex; flex-direction: column; gap: 1.25rem; }
+h1 {
+  font-family: var(--body); font-weight: 500; font-size: clamp(1.75rem, 5vw, 2.5rem);
+  line-height: 1.15; letter-spacing: -.03em; margin: 0; text-wrap: balance;
+}
+.intro p { margin: 0; max-width: 36rem; color: var(--muted); font-size: 1.0625rem; }
+
+h2 {
+  font-family: var(--display); font-size: .6875rem; font-weight: 500; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--muted); margin: 0 0 1rem;
+}
+
+.projects { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--rule); }
+.projects li {
+  display: grid; grid-template-columns: 9.5rem 1fr auto; gap: .25rem 1.25rem; align-items: baseline;
+  padding-block: 1.1rem; border-bottom: 1px solid var(--rule);
+}
+.projects h3 { margin: 0; font-size: 1rem; font-weight: 600; }
+.projects p { margin: 0; color: var(--muted); min-width: 0; }
+.status {
+  font-family: var(--display); font-size: .625rem; letter-spacing: .05em; text-transform: uppercase; white-space: nowrap;
+  color: var(--fg); background: var(--chip); border-radius: 4px; padding: .2rem .45rem;
+}
+
+.contact p { margin: 0 0 .75rem; color: var(--muted); max-width: 36rem; }
+.email { display: flex; align-items: center; gap: .75rem; flex-wrap: wrap; }
+.email a { color: var(--fg); font-size: 1.125rem; text-decoration: none; border-bottom: 1px solid var(--accent); user-select: all; }
+.copy {
+  font: inherit; font-family: var(--display); font-size: .625rem; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--accent); background: none; border: 0; padding: .25rem; cursor: pointer;
+}
+
+footer { font-family: var(--display); font-size: .6875rem; color: var(--muted); display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+
+@media (max-width: 560px) {
+  .page { gap: 3.5rem; }
+  .projects li { grid-template-columns: 1fr auto; }
+  .projects p { grid-column: 1 / -1; }
+}
+@media (prefers-reduced-motion: reduce) { body { transition: none; } }
+</style>
+<style>body{margin:0}</style>
+</head>
+<body>
+
+<div class="page">
+  <header>
+    <div class="mark">Mann Computer</div>
+    <button class="toggle" id="theme-toggle" type="button" aria-label="Switch color theme">
+      <span class="dot" aria-hidden="true"></span><span id="theme-label">Dark</span>
+    </button>
+  </header>
+
+  <section class="intro">
+    <h1>Agents that persist, learn their place, and work alongside people.</h1>
+    <p>Mann Computer is a small research and product studio started by Christian Ervin at South Park Commons in 2026. We build scaffolding for identity-bearing agents and the simulated organizations we test them in. Alongside that, we make tools that help people keep up with what AI can do at work.</p>
+  </section>
+
+  <section>
+    <h2>Projects</h2>
+    <ul class="projects">
+      <li>
+        <h3>Scaffold</h3>
+        <span class="status">Research</span>
+        <p>The support structure around a base model that lets an agent hold a role over time: onboarding, memory, theory of mind, an immutable log, and simulation of actions before it takes them.</p>
+      </li>
+      <li>
+        <h3>Consortium</h3>
+        <span class="status">Stage 2</span>
+        <p>A small society of autonomous agents with their own missions, sharing a treasury and a hash-chained log, coordinating through offers, commitments and handoffs.</p>
+      </li>
+      <li>
+        <h3>Orgsim</h3>
+        <span class="status">Testbed</span>
+        <p>A simulated company with model-played colleagues and real feedback signals, built to measure whether an agent actually gets better at a job.</p>
+      </li>
+      <li>
+        <h3>Pacer</h3>
+        <span class="status">Design partners</span>
+        <p>AI fluency training generated from each team's own work, with proficiency measured on that work instead of quiz scores.</p>
+      </li>
+      <li>
+        <h3>Olympus Mons</h3>
+        <span class="status">SPC Slack</span>
+        <p>A bot that works an idea through rounds of implications until it is ten times more ambitious.</p>
+      </li>
+      <li>
+        <h3>Hourglass</h3>
+        <span class="status">Prototype</span>
+        <p>An explorer for the branching pasts and futures around any token in a model's output.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section class="contact">
+    <h2>Contact</h2>
+    <p>For research collaboration, design partnerships, or investment, write to Christian.</p>
+    <div class="email">
+      <a href="mailto:christian@mann.computer" id="email">christian@mann.computer</a>
+      <button class="copy" id="copy" type="button">Copy</button>
+    </div>
+  </section>
+
+  <footer>
+    <span>Mann Computer</span>
+    <span>San Anselmo, California · 2026</span>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var btn = document.getElementById('theme-toggle');
+  var label = document.getElementById('theme-label');
+  function current() {
+    var t = root.getAttribute('data-theme');
+    if (t) return t;
+    return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  }
+  function render() { label.textContent = current() === 'dark' ? 'Light' : 'Dark'; }
+  try { var saved = localStorage.getItem('mc-theme'); if (saved === 'dark' || saved === 'light') root.setAttribute('data-theme', saved); } catch (e) {}
+  render();
+  if (window.matchMedia) {
+    var mq = window.matchMedia('(prefers-color-scheme: dark)');
+    if (mq.addEventListener) mq.addEventListener('change', render);
+  }
+  btn.addEventListener('click', function () {
+    var next = current() === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('mc-theme', next); } catch (e) {}
+    render();
+  });
+
+  var copy = document.getElementById('copy');
+  var email = document.getElementById('email');
+  copy.addEventListener('click', function () {
+    var text = email.textContent;
+    function done(msg) { copy.textContent = msg; setTimeout(function () { copy.textContent = 'Copy'; }, 1600); }
+    function fallback() {
+      var r = document.createRange(); r.selectNodeContents(email);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      done('Selected');
+    }
+    try {
+      navigator.clipboard.writeText(text).then(function () { done('Copied'); }, fallback);
+    } catch (e) { fallback(); }
+  });
+})();
+</script>
+</body>
+</html>
