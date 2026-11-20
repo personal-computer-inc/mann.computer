@@ -141,6 +141,7 @@ code,.mono{font-family:var(--f-mono);font-size:.88em}
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}</style>
 </head>
 <body>
+
 <div class="wrap">
 <div class="page">
 <nav class="toc" aria-label="Contents">
@@ -174,15 +175,15 @@ code,.mono{font-family:var(--f-mono);font-size:.88em}
 <p class="kicker">Summary</p>
 <h2>The loop runs well. The interface doesn't yet show where it stands.</h2>
 <div class="col">
-<p>Mirendil's bet is that the research loop is the product: agents write code, run experiments and iterate for days while one researcher steers. In the beta, the loop itself works. The agents plan, fix their own harness bugs, provision GPUs, report spend and recommend next steps.</p>
-<p>What's missing is a view of the loop from the researcher's side. To learn what is running, what is waiting on me, what it has cost and where a number came from, I had to ask the agent or dig through Settings. Those answers should be on screen without asking. The proposals below reorganize Lor around that, without changing its visual language.</p>
+<p>Mirendil's bet is that the research loop is the product. Agents write code, run experiments, bring up their own machines and unblock themselves, while people make the two calls agents can't: what to try, and what to trust. In the beta, the loop itself works. The agents plan, fix their own harness bugs, provision GPUs, report spend and recommend next steps.</p>
+<p>What's missing is a view of the loop from the researcher's side. To learn what was running, what was waiting on me, what it had cost and where a number came from, I had to ask the agent or dig through Settings. Those answers should be on screen without asking, at the scale Lor is built for: a hundred agents on one task, finished while you were away. The proposals below reorganize Lor around those two calls, without changing its visual language.</p>
 </div>
 <ol class="changes">
 <li><b>Give cross-session work one home, called Lab.</b><span>It replaces Omni Agent and is reachable from the sidebar, from ⌘K with Tab, and from a small dock on any screen.</span></li>
-<li><b>Put status and attention on screen all the time.</b><span>One live line in the sidebar, a queue of decisions waiting on you, and one Activity list for agents, jobs and machines.</span></li>
+<li><b>Put status and attention on screen all the time.</b><span>One live line in the sidebar, a queue of decisions waiting on you, and one Activity list that separates what agents fixed on their own from what needs you, with Stop on every fan-out.</span></li>
 <li><b>Make decisions actionable.</b><span>When the agent asks you to choose, show the options as a card with cost, budget left and a button for each.</span></li>
-<li><b>Set guardrails when work starts.</b><span>Project, machine, budget and GPU policy in the composer, so the agent asks before spending on a GPU.</span></li>
-<li><b>Bring compute and spend into the work.</b><span>Machines and Spend become tabs of Lab, in dollars, with history and a breakdown by chat. Payment stays in Settings.</span></li>
+<li><b>Set guardrails when work starts.</b><span>Example prompts at Lor's real scale, plus project, default machine, budget and GPU policy in the composer.</span></li>
+<li><b>Oversee compute instead of provisioning it.</b><span>Agents bring machines up and release them. Machines and Spend become tabs of Lab that show what they used and set the rules they work within.</span></li>
 </ol>
 </section>
 
@@ -192,15 +193,15 @@ code,.mono{font-family:var(--f-mono);font-size:.88em}
 <div class="col"><p>Mirendil describes itself as a frontier lab rebuilt around AI research and development. Lor is the environment where that work happens. The claims that matter for the interface:</p></div>
 <div class="quotes">
 <blockquote>“The loop is the product.”<cite>Kleiner Perkins on Mirendil's thesis</cite></blockquote>
-<blockquote>Agents “write code, run experiments, and iterate on the results for days.”<cite>mirendil.com, on Lor</cite></blockquote>
-<blockquote>Lor does “the work of an entire AI lab.”<cite>mirendil.com</cite></blockquote>
+<blockquote>“People make the calls: what to try, and what to trust.”<cite>Mirendil, Meet Lor</cite></blockquote>
+<blockquote>“No cloud account. No setup.”<cite>Mirendil, Meet Lor, on Lor's built-in compute</cite></blockquote>
 <blockquote>Fern was “built by one researcher working with agents in 3.5 months.”<cite>mirendil.com</cite></blockquote>
 </div>
-<div class="col"><p>One person, many agents, long-running work, real money. That shape gives the interface three jobs, and I used them as the lenses for every finding and proposal.</p></div>
+<div class="col"><p>Meet Lor makes the split explicit. Agents do the work, including setting up and releasing their own machines, and can run by the hundred: one example sends 102 agents to build environments from 100 PyTorch PRs in about eight minutes each. People decide what to try and what to trust, and keep up from anywhere, including a phone. That gives the interface three jobs, and I used them as the lenses for every finding and proposal.</p></div>
 <div class="lenses">
-<div><div class="n">Lens 1</div><h4>Attention</h4><p>Tell one researcher what needs them, across every session, without polling.</p></div>
-<div><div class="n">Lens 2</div><h4>Trust</h4><p>Let them check any result or claim against the run, trace or file that produced it.</p></div>
-<div><div class="n">Lens 3</div><h4>Resources</h4><p>Show what compute is in use and what it costs before and while it's spent.</p></div>
+<div><div class="n">Lens 1</div><h4>What to try</h4><p>Put the decisions only a person can make in front of them, with cost and options, across every session.</p></div>
+<div><div class="n">Lens 2</div><h4>What to trust</h4><p>Let them check any result or claim against the run, trace or file that produced it.</p></div>
+<div><div class="n">Lens 3</div><h4>Keeping up</h4><p>Show what's running, what agents fixed on their own and what it costs, on a laptop or a phone, without asking.</p></div>
 </div>
 </section>
 
@@ -213,9 +214,10 @@ code,.mono{font-family:var(--f-mono);font-size:.88em}
 <li>Walked through Compute, Settings, Sandboxes, Billing and Usage in the live app and captured each screen.</li>
 <li>Rebuilt the current screens from measured screenshots (sidebar rows on a 28.25pt pitch, 616pt chat column, #191919 ground) so proposals could be compared with Lor like for like.</li>
 <li>Checked each issue against Nielsen's ten heuristics and common UX laws, and rated severity by its effect on the three lenses.</li>
+<li>Re-read the proposals against Mirendil's Meet Lor post and adjusted them where Lor's intent differed from my assumptions, mainly on compute.</li>
 </ul>
 <p class="muted" style="font-size:14px"><b style="color:var(--ink);font-weight:600">Severity.</b> <span class="sev h">High</span> blocks one of the three jobs. <span class="sev m">Medium</span> slows it down or misleads. <span class="sev l">Low</span> is polish.</p>
-<p class="muted" style="font-size:14px">Proposed screens are mockups on Lor's own chrome. Example runs and timings are illustrative, and values I couldn't see are shown as placeholders such as [RATE] and [PRICE].</p>
+<p class="muted" style="font-size:14px">Proposed screens are mockups on Lor's own chrome. Example runs and timings are illustrative, and prices I couldn't see are left out rather than guessed.</p>
 </div>
 </section>
 
@@ -234,27 +236,27 @@ code,.mono{font-family:var(--f-mono);font-size:.88em}
 <h3 style="margin-top:40px">Seeing what's running</h3>
 <figure><div class="shot"><img src="img/cur-background.webp" width="1316" height="909" alt="Background list open from the + menu showing eighteen finished commands, each beginning cd ~/code/orgsim-lor/orgsim" loading="lazy"></div><figcaption>Background lists 18 finished commands. Each starts with the same <code>cd ~/code/orgsim-lor/orgsim &amp;&amp;</code>, so truncation hides the part that differs.</figcaption></figure>
 <ul class="finds">
-<li><span class="sev h">High</span><div><p><b>There is no view of what's live.</b> Subagents shows only a Finished group, and Background is a separate list in a different menu. Neither shows cost, duration or outcome.</p><div class="tags"><span class="tag">Visibility of status</span><span class="tag">Attention</span></div></div></li>
-<li><span class="sev m">Medium</span><div><p><b>Failures look like everything else.</b> Two background rows carry a red dot with no legend and no exit code; a subagent row has the same dot.</p><div class="tags"><span class="tag">Recover from errors</span></div></div></li>
+<li><span class="sev h">High</span><div><p><b>There is no view of what's live.</b> Subagents shows only a Finished group, and Background is a separate list in a different menu. Neither shows cost, duration or outcome, and there's no way to stop a group of agents at once. At a hundred agents per task, that list is the main way to keep up.</p><div class="tags"><span class="tag">Visibility of status</span><span class="tag">User control</span><span class="tag">Keeping up</span></div></div></li>
+<li><span class="sev m">Medium</span><div><p><b>A red dot can't say whether it matters.</b> Two background rows and a subagent row carry a red dot with no legend and no exit code. Lor's agents retry and unblock themselves, so many of these failures are already handled. The interface should say which ones were and which still need a person.</p><div class="tags"><span class="tag">Recover from errors</span><span class="tag">What to trust</span></div></div></li>
 <li><span class="sev l">Low</span><div><p><b>Sidebar times don't separate chats.</b> Most rows read 12h or 18h whatever their state, and nothing marks a chat that is running or waiting.</p><div class="tags"><span class="tag">Visibility of status</span></div></div></li>
 </ul>
 
 <h3 style="margin-top:40px">Steering decisions</h3>
 <figure><div class="shot"><img src="img/cur-chat.webp" width="1600" height="1101" alt="Lor chat showing a results table and examples, with the sticky question bubble overlapping the table header" loading="lazy"></div><figcaption>Results arrive as well-written prose and tables, but numbers don't link back to the run, seed or judge verdict behind them.</figcaption></figure>
 <ul class="finds">
-<li><span class="sev h">High</span><div><p><b>Spend decisions are prose.</b> The agent ended a run with "Decision for you" and three numbered options costing about $16 to about $480. Choosing means typing a reply. There's no budget context and nothing records which option was chosen.</p><div class="tags"><span class="tag">User control</span><span class="tag">Fitts's law</span><span class="tag">Resources</span></div></div></li>
-<li><span class="sev h">High</span><div><p><b>To learn what a run cost, I had to ask.</b> "What is spend looking like for this run?" got a hand-built table ($28.87 in models). The product has the data in Usage but doesn't show it in the session.</p><div class="tags"><span class="tag">Visibility of status</span><span class="tag">Resources</span></div></div></li>
-<li><span class="sev m">Medium</span><div><p><b>Claims don't link to evidence.</b> "Week 10, seed 2 … Quality 0.10" has no link to the trace. The agent notes it hasn't checked 13 cases by hand, and there's no route for me to check them.</p><div class="tags"><span class="tag">Trust</span></div></div></li>
+<li><span class="sev h">High</span><div><p><b>Spend decisions are prose.</b> The agent ended a run with "Decision for you" and three numbered options costing about $16 to about $480. Choosing means typing a reply. There's no budget context and nothing records which option was chosen.</p><div class="tags"><span class="tag">User control</span><span class="tag">Fitts's law</span><span class="tag">What to try</span></div></div></li>
+<li><span class="sev h">High</span><div><p><b>To learn what a run cost, I had to ask.</b> "What is spend looking like for this run?" got a hand-built table ($28.87 in models). The product has the data in Usage but doesn't show it in the session.</p><div class="tags"><span class="tag">Visibility of status</span><span class="tag">Keeping up</span></div></div></li>
+<li><span class="sev m">Medium</span><div><p><b>Claims don't link to evidence.</b> "Week 10, seed 2 … Quality 0.10" has no link to the trace. The agent notes it hasn't checked 13 cases by hand, and there's no route for me to check them.</p><div class="tags"><span class="tag">What to trust</span></div></div></li>
 <li><span class="sev l">Low</span><div><p><b>The sticky question overlaps content</b>, cutting the table header in half.</p><div class="tags"><span class="tag">Aesthetic and minimalist</span></div></div></li>
 </ul>
 
 <h3 style="margin-top:40px">Compute and cost</h3>
 <div class="pair">
-<figure><div class="shot"><img src="img/cur-compute.webp" width="1316" height="909" alt="Compute page listing clusters with availability bars and node blocks" loading="lazy"></div><figcaption>Compute shows availability per region, with no prices and no way to request capacity.</figcaption></figure>
+<figure><div class="shot"><img src="img/cur-compute.webp" width="1316" height="909" alt="Compute page listing clusters with availability bars and node blocks" loading="lazy"></div><figcaption>Compute shows availability per region. It reads like a provisioning console, though agents do the provisioning.</figcaption></figure>
 <figure><div class="shot"><img src="img/cur-billing.webp" width="1316" height="909" alt="Billing settings showing a balance of negative 40 cents, 928.40 dollars of compute credits and usage as percentages" loading="lazy"></div><figcaption>Billing shows −$0.40 next to $928.40 in credits, and usage as percentages.</figcaption></figure>
 </div>
 <ul class="finds">
-<li><span class="sev h">High</span><div><p><b>Used machines leave no trace.</b> The agent ran two GPU VMs in one session and released them. My allocations then read "No active jobs or GPU instances". The only record was a sentence in the chat.</p><div class="tags"><span class="tag">Visibility of status</span><span class="tag">Resources</span></div></div></li>
+<li><span class="sev h">High</span><div><p><b>Agent-provisioned machines leave no trace.</b> Bringing up and releasing nodes is the agent's job, and it did this well: two GPU VMs in one session, both released. My allocations then read "No active jobs or GPU instances", and the only record was a sentence in the chat. If agents provision, the person needs the record and the rules, not the controls.</p><div class="tags"><span class="tag">Visibility of status</span><span class="tag">Keeping up</span></div></div></li>
 <li><span class="sev m">Medium</span><div><p><b>Cost lives two levels deep in Settings, split three ways.</b> Billing shows percentages, Usage shows model spend ($278.28) and VM spend ($71.53, estimated) in separate tables, and nothing breaks spend down by chat or project.</p><div class="tags"><span class="tag">Proximity</span><span class="tag">Recognition over recall</span></div></div></li>
 <li><span class="sev m">Medium</span><div><p><b>The negative balance is unexplained.</b> With $928 in compute-only credits, it isn't clear what the −$0.40 covers or what happens next. "Resets 4 PM" is midnight UTC, which only the Usage page explains.</p><div class="tags"><span class="tag">Help users recognize errors</span></div></div></li>
 </ul>
@@ -267,13 +269,14 @@ code,.mono{font-family:var(--f-mono);font-size:.88em}
 <ul class="finds">
 <li><span class="sev m">Medium</span><div><p><b>Local and cloud look identical.</b> The tree root is <code>code</code> and the prompt is <code>christian@lor-b7f7542cb16d…</code>. The friendly name "Lor Computer" exists only in Settings.</p><div class="tags"><span class="tag">Visibility of status</span><span class="tag">Match real world</span></div></div></li>
 <li><span class="sev m">Medium</span><div><p><b>A shell restart is silent.</b> "Previous shell ended. Started a new one." appears once, on top of the prompt, with no reason or saved output.</p><div class="tags"><span class="tag">Recover from errors</span></div></div></li>
-<li><span class="sev l">Low</span><div><p><b>Truncation hides the differing part.</b> <code>glmflash-20261116T04314…</code> and <code>glmflash-20261116T04381…</code> differ only after the cut. Files show "3d" with no size, and nothing says which agent wrote them.</p><div class="tags"><span class="tag">Trust</span></div></div></li>
+<li><span class="sev l">Low</span><div><p><b>Truncation hides the differing part.</b> <code>glmflash-20261116T04314…</code> and <code>glmflash-20261116T04381…</code> differ only after the cut. Files show "3d" with no size, and nothing says which agent wrote them.</p><div class="tags"><span class="tag">What to trust</span></div></div></li>
 </ul>
 
 <h3 style="margin-top:40px">What already works</h3>
 <div class="good">
 <ul>
 <li>The new-chat composer names the machine and folder before the first message.</li>
+<li>Agents provision, release and recover on their own. The proposals build on that rather than adding manual controls.</li>
 <li>The agents' writing is clear and candid about uncertainty, which makes the trust work above easy to build on.</li>
 <li>Usage has good raw data: spend by model, cache hit rate, GPU-hours by type.</li>
 <li>⌘K already has scopes, recent chats and "open beside".</li>
@@ -290,7 +293,7 @@ code,.mono{font-family:var(--f-mono);font-size:.88em}
 <div class="ba" data-ba>
 <div class="ba-bar"><div class="ba-tabs" role="tablist" aria-label="Compare opening screen"><button role="tab" aria-selected="false" data-k="cur">Current</button><button role="tab" aria-selected="true" data-k="pro">Proposed</button></div><span class="hint">Opening screen</span></div>
 <div class="shot"><img data-k="cur" src="img/cur-home.webp" width="1600" height="1101" alt="Current opening screen: Ready to investigate, with a composer naming the machine and folder" loading="lazy" hidden><img data-k="pro" src="img/pro-lab.webp" width="1600" height="1101" alt="Proposed Lab overview: composer to ask the lab, Needs you, Running, Results since you left, Machines and Spend" loading="lazy"></div>
-<figcaption>Proposed: Lab opens with what needs you, what's running, and results since you left. Machines and spend sit to the side.</figcaption>
+<figcaption>Proposed: Lab opens with what needs you, what's running and how many agents, what agents handled on their own, and results since you left. Machines and spend sit to the side. The same order works as Lor's phone view.</figcaption>
 </div>
 
 <h3>Three entry points, one concept</h3>
@@ -319,17 +322,17 @@ code,.mono{font-family:var(--f-mono);font-size:.88em}
 <section id="p-attention">
 <p class="kicker">Proposal 2</p>
 <h2>Status and attention, always on screen</h2>
-<div class="col"><p>With hundreds of agents, the scarce resource is the researcher's attention. The interface should route it: show what needs a person first, keep the rest visible but quiet, and never require polling.</p></div>
+<div class="col"><p>With hundreds of agents, the scarce resource is the researcher's attention. The interface should route it: show what needs a person first, show what agents already recovered from so it doesn't read as failure, keep the rest visible but quiet, and never require polling.</p></div>
 <div class="ba" data-ba>
 <div class="ba-bar"><div class="ba-tabs" role="tablist" aria-label="Compare activity"><button role="tab" aria-selected="false" data-k="cur">Current</button><button role="tab" aria-selected="true" data-k="pro">Proposed</button></div><span class="hint">Active session</span></div>
-<div class="shot"><img data-k="cur" src="img/cur-subagents.webp" width="1600" height="1101" alt="Current Subagents popover listing finished subagents only" loading="lazy" hidden><img data-k="pro" src="img/pro-session.webp" width="1600" height="1101" alt="Proposed session with an Activity rail grouped into Needs attention, Running and Finished" loading="lazy"></div>
-<figcaption>Proposed: one Activity rail for agents, jobs and machines, grouped Needs attention, Running, Finished. Rows show kind, model, machine, time and cost.</figcaption>
+<div class="shot"><img data-k="cur" src="img/cur-subagents.webp" width="1600" height="1101" alt="Current Subagents popover listing finished subagents only" loading="lazy" hidden><img data-k="pro" src="img/pro-session.webp" width="1600" height="1101" alt="Proposed session with an Activity rail grouped into Needs you, Running with a 24-agent fan-out and Stop controls, Recovered on its own, and Finished" loading="lazy"></div>
+<figcaption>Proposed: one Activity rail for agents, jobs and machines, grouped Needs you, Running, Recovered on its own, Finished. A fan-out of 24 agents is one row with a progress bar, Stop and Stop all.</figcaption>
 </div>
 <div class="why">
-<div><h4>Sidebar status line</h4><p>"3 runs · 7 agents · 2 need you" replaces the footer stack of Compute, Help and a spend widget. One line, always visible, opens Lab.</p></div>
+<div><h4>Sidebar status line</h4><p>"3 runs · 107 agents · 2 need you" replaces the footer stack of Compute, Help and a spend widget. One line, always visible, opens Lab. Each chat gets a dot: running, needs you, or idle.</p></div>
 <div><h4>Needs-you queue</h4><p>Decisions and approvals from every session, at the top of Lab with inline actions. Amber is used only for this.</p></div>
-<div><h4>Merged Activity</h4><p>Subagents and Background become one list. Commands get readable names; failures are grouped with exit codes.</p></div>
-<div><h4>State in the sidebar</h4><p>A dot on each chat: running, needs you, or idle. Times only where they help.</p></div>
+<div><h4>Fan-outs as one row</h4><p>Subagents and Background become one list. A task run by many agents collapses to one row with done, running and retried counts, and Stop for the group.</p></div>
+<div><h4>Recovered apart from needs you</h4><p>Retries and fixed dependencies are listed as handled, with exit codes. Only what an agent couldn't resolve turns amber.</p></div>
 </div>
 <p class="callout">Why not lead with spend? Spend matters, but it's a consequence of the work. Leading with it would make the sidebar a meter. Running work and decisions come first; spend stays one tap away and appears wherever money is about to be committed.</p>
 </section>
@@ -353,15 +356,15 @@ code,.mono{font-family:var(--f-mono);font-size:.88em}
 <section id="p-start">
 <p class="kicker">Proposal 4</p>
 <h2>Guardrails when work starts</h2>
-<div class="col"><p>Today's composer already names the machine and folder, which is the right instinct. Extend it with the decisions that are expensive to reverse later.</p></div>
+<div class="col"><p>Today's composer already names the machine and folder, which is the right instinct. Extend it with the decisions that are expensive to reverse later, and show new users what Lor is for with Mirendil's own example prompts: overnight ablations, a repo-wide security audit with a PR per fix, reproducing a paper's table on 8 GPUs.</p></div>
 <div class="ba" data-ba>
 <div class="ba-bar"><div class="ba-tabs" role="tablist" aria-label="Compare new session"><button role="tab" aria-selected="false" data-k="cur">Current</button><button role="tab" aria-selected="true" data-k="pro">Proposed</button></div><span class="hint">New chat</span></div>
-<div class="shot"><img data-k="cur" src="img/cur-home.webp" width="1600" height="1101" alt="Current new chat composer with machine and folder" loading="lazy" hidden><img data-k="pro" src="img/pro-start.webp" width="1600" height="1101" alt="Proposed composer with the machine picker open, including GPU policy options" loading="lazy"></div>
-<figcaption>Proposed: the machine picker also sets a GPU policy. Project and budget sit on the same line.</figcaption>
+<div class="shot"><img data-k="cur" src="img/cur-home.webp" width="1600" height="1101" alt="Current new chat composer with machine and folder" loading="lazy" hidden><img data-k="pro" src="img/pro-start.webp" width="1600" height="1101" alt="Proposed new chat with example prompts and the machine picker open, showing a default machine and GPU policy options" loading="lazy"></div>
+<figcaption>Proposed: the picker sets a default machine (agents can still use any machine you've added) and a GPU policy. Project and budget sit on the same line. Example prompts fill the empty state.</figcaption>
 </div>
 <h3>GPU policy options</h3>
 <div class="opts">
-<div class="opt rec"><span class="lab">Recommended default</span><h4>Ask before adding a GPU</h4><p>The agent proposes type, rate and estimate; you approve inline or from Lab.</p></div>
+<div class="opt rec"><span class="lab">Recommended default</span><h4>Ask before adding a GPU</h4><p>The agent proposes type, price and estimate; you approve inline, from Lab or from your phone.</p></div>
 <div class="opt"><span class="lab">For long runs</span><h4>Allow up to a limit</h4><p>e.g. up to 1× H100 within the session budget. Fewer interruptions overnight.</p></div>
 <div class="opt"><span class="lab">For analysis</span><h4>CPU only</h4><p>No GPU spend at all; the agent says when a task would need one.</p></div>
 </div>
@@ -369,17 +372,23 @@ code,.mono{font-family:var(--f-mono);font-size:.88em}
 
 <section id="p-compute">
 <p class="kicker">Proposal 5</p>
-<h2>Compute and spend inside the work</h2>
-<div class="col"><p>Machines and Spend become tabs of Lab, next to the runs that use them. Payment details stay in Settings › Billing.</p></div>
+<h2>Oversee compute instead of provisioning it</h2>
+<div class="col"><p>Lor comes with its own compute, and agents request, set up and release nodes themselves. So the Machines view shouldn't be a provisioning console. It should show what agents used, what it cost and which chat it served, and hold the rules they work within. Machines and Spend become tabs of Lab, next to the runs that use them. Payment details stay in Settings › Billing.</p></div>
 <div class="ba" data-ba>
 <div class="ba-bar"><div class="ba-tabs" role="tablist" aria-label="Compare compute"><button role="tab" aria-selected="false" data-k="cur">Current</button><button role="tab" aria-selected="true" data-k="pro">Proposed</button></div><span class="hint">Machines</span></div>
-<div class="shot"><img data-k="cur" src="img/cur-compute.webp" width="1316" height="909" alt="Current Compute page with cluster availability" loading="lazy" hidden><img data-k="pro" src="img/pro-machines.webp" width="1600" height="1101" alt="Proposed Lab Machines tab with a summary, a machine table including released GPUs, and capacity with prices" loading="lazy"></div>
-<figcaption>Proposed: live and released machines with time, cost and the chat that used them. Capacity shows price and a Request action.</figcaption>
+<div class="shot"><img data-k="cur" src="img/cur-compute.webp" width="1316" height="909" alt="Current Compute page with cluster availability" loading="lazy" hidden><img data-k="pro" src="img/pro-machines.webp" width="1600" height="1101" alt="Proposed Lab Machines tab with a summary, a machine table including GPU nodes agents brought up and released, and rules for agents" loading="lazy"></div>
+<figcaption>Proposed: machines agents can use, including GPU nodes they brought up and released, with time, cost and the chat that used them. Below, the rules: when to ask, which accelerators, when to release idle nodes, and a daily limit. Add a machine is the only manual step.</figcaption>
 </div>
 <div class="ba" data-ba>
 <div class="ba-bar"><div class="ba-tabs" role="tablist" aria-label="Compare spend"><button role="tab" aria-selected="false" data-k="cur">Current</button><button role="tab" aria-selected="true" data-k="pro">Proposed</button></div><span class="hint">Spend</span></div>
 <div class="shot"><img data-k="cur" src="img/cur-billing.webp" width="1316" height="909" alt="Current Billing page" loading="lazy" hidden><img data-k="pro" src="img/pro-spend.webp" width="1600" height="1101" alt="Proposed Lab Spend tab with today, 30-day and balance totals, a models versus machines bar, a table by project and chat, and the Lab dock open" loading="lazy"></div>
-<figcaption>Proposed: dollars instead of percentages, one total across models and machines, spend by project and chat, and the UTC reset explained. The Lab dock offers spend questions.</figcaption>
+<figcaption>Proposed: dollars instead of percentages, one total across models and machines, spend by project and chat, and the UTC reset explained. Lor is free during the beta, so this is the moment to make cost per run a habit before it costs anything.</figcaption>
+</div>
+<h3>Rules for agents</h3>
+<div class="opts">
+<div class="opt rec"><span class="lab">Recommended</span><h4>Rules on the Machines tab</h4><p>GPU policy, allowed accelerators, idle release and a daily limit, in one place, applied to every chat unless the composer overrides them.</p><div class="pc"><span class="p">Agents keep full autonomy within limits</span><span class="p">One place to audit</span><span class="c">Needs per-chat overrides</span></div></div>
+<div class="opt"><span class="lab">Considered, set aside</span><h4>Manual request flow</h4><p>A Request button on capacity rows, so people bring up nodes themselves.</p><div class="pc"><span class="p">Familiar from cloud consoles</span><span class="c">Works against agents provisioning on their own</span></div></div>
+<div class="opt"><span class="lab">Status quo</span><h4>Per-chat approval only</h4><p>Agents ask in each chat before every GPU.</p><div class="pc"><span class="p">No new settings</span><span class="c">Interrupts overnight runs</span></div></div>
 </div>
 <h3>Where spend should live</h3>
 <div class="opts">
@@ -412,13 +421,13 @@ code,.mono{font-family:var(--f-mono);font-size:.88em}
 <tr><th>Nielsen heuristic</th><th>Today</th><th>Proposed</th></tr>
 <tr><td><b>Visibility of system status</b></td><td>No live view; spend learned by asking</td><td>Status line, Activity rail, progress and time left on runs</td></tr>
 <tr><td><b>Match the real world</b></td><td>Omni Agent; three "Compute"s; hashed hostnames</td><td>Lab, runs, machines with names</td></tr>
-<tr><td><b>User control and freedom</b></td><td>Choices typed as replies</td><td>Approve, decline and stop beside the decision</td></tr>
+<tr><td><b>User control and freedom</b></td><td>Choices typed as replies; no way to stop a group of agents</td><td>Approve and decline beside the decision; Stop and Stop all on every fan-out</td></tr>
 <tr><td><b>Consistency and standards</b></td><td>Subagents and Background as separate lists</td><td>One Activity concept; Lab tabs</td></tr>
 <tr><td><b>Error prevention</b></td><td>GPU spend discovered after the fact</td><td>GPU policy and run budget set up front</td></tr>
 <tr><td><b>Recognition over recall</b></td><td>Unlabeled icons; cost two levels deep</td><td>Labeled controls; contextual ⌘K and dock prompts</td></tr>
 <tr><td><b>Flexibility and efficiency</b></td><td>⌘K for navigation</td><td>⌘K Tab to ask Lab; ⌘J for the dock</td></tr>
 <tr><td><b>Aesthetic and minimalist design</b></td><td>Footer stack; overlapping sticky bubble</td><td>One status line; no overlaps</td></tr>
-<tr><td><b>Recognize and recover from errors</b></td><td>Red dots without legend</td><td>Needs attention group with exit codes and retry</td></tr>
+<tr><td><b>Recognize and recover from errors</b></td><td>Red dots without legend</td><td>Recovered on its own listed apart from Needs you, with exit codes</td></tr>
 <tr><td><b>Help and documentation</b></td><td>Help in the footer</td><td>Help in ⌘K and the account menu</td></tr>
 </table></div>
 <div class="scroll"><table>
@@ -431,7 +440,7 @@ code,.mono{font-family:var(--f-mono);font-size:.88em}
 <tr><td><b>Von Restorff effect</b></td><td>Amber is reserved for "needs you"; everything else stays neutral.</td></tr>
 <tr><td><b>Proximity and common region</b></td><td>Compute and spend grouped under Lab, next to the work they serve.</td></tr>
 <tr><td><b>Doherty threshold</b></td><td>Live counts keep the system feeling responsive between long agent turns.</td></tr>
-<tr><td><b>Tesler's law</b></td><td>The agent keeps the complexity of provisioning; the interface shows every cost before it's committed.</td></tr>
+<tr><td><b>Tesler's law</b></td><td>Agents carry provisioning and recovery. People carry the rules and the calls on what to try and what to trust.</td></tr>
 </table></div>
 </section>
 
@@ -448,9 +457,9 @@ code,.mono{font-family:var(--f-mono);font-size:.88em}
 </ol></div>
 <div><h4>Larger changes <small>weeks</small></h4><ol>
 <li>Lab: overview page, persistent session, ⌘K Tab, dock.</li>
-<li>One Activity model for agents, jobs and machines, with cost.</li>
+<li>One Activity model for agents, jobs and machines, with cost, fan-out rows and Stop.</li>
 <li>Structured decision cards, recorded in run history.</li>
-<li>Machines and Spend under Lab, including released-machine history.</li>
+<li>Machines and Spend under Lab, with a record of agent-provisioned nodes and rules for agents.</li>
 <li>Provenance links from claims to traces and verdicts.</li>
 </ol></div>
 </div>
@@ -461,8 +470,9 @@ code,.mono{font-family:var(--f-mono);font-size:.88em}
 <h2>What I couldn't see from the outside</h2>
 <div class="col"><ul class="plain">
 <li>Is per-run and per-chat cost available in real time, or only in the daily Usage rollup?</li>
+<li>What does the phone app show today, and should Lab's overview be its home screen?</li>
 <li>Can agents emit decisions in a structured form the UI can render, or would the card need to be parsed from prose?</li>
-<li>Will GPU prices be shown before provisioning, and are preemptible rates different enough to offer as a choice?</li>
+<li>When an agent brings up a GPU node, which limits does it already respect, and can people set them per project?</li>
 <li>Will teams share Lab, budgets and machines, or is Lor single-researcher for now?</li>
 <li>Is Omni Agent meant to be a distinct agent with its own model and memory, or a cross-session view? The naming proposal assumes the second.</li>
 </ul></div>
@@ -475,6 +485,7 @@ code,.mono{font-family:var(--f-mono);font-size:.88em}
 <p class="muted">Christian Ervin</p>
 <p class="kicker" style="margin-top:32px">Sources</p>
 <ul class="sources">
+<li><a href="https://mirendil.com/news/meet-lor/" target="_blank" rel="noopener">Mirendil, "Meet Lor"</a></li>
 <li><a href="https://mirendil.com" target="_blank" rel="noopener">Mirendil</a>, company site and Lor description</li>
 <li><a href="https://www.kleinerperkins.com/perspectives/mirendil-building-the-system-that-builds-systems/" target="_blank" rel="noopener">Kleiner Perkins, "Mirendil: building the system that builds systems"</a></li>
 <li><a href="https://ai-tldr.dev/releases/mirendil-1b-series-a/" target="_blank" rel="noopener">AI TL;DR, Mirendil $1B Series A</a></li>
