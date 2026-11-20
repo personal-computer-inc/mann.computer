@@ -228,7 +228,7 @@ code,.mono{font-family:var(--f-mono);font-size:.88em}
 <h2>Where the current interface falls short</h2>
 
 <h3 style="margin-top:28px">Entry points and naming</h3>
-<figure><div class="shot"><img src="img/cur-menu.webp" width="1600" height="1101" alt="Lor chat view with the + menu open, listing Subagents, Artifacts, Pull Requests, Files, Background, Terminal, Computer and Browser" loading="lazy"></div><figcaption>The + menu holds eight items of three different kinds: work in progress, outputs and tools.</figcaption></figure>
+<figure><div class="shot"><img src="img/current-session-plus-menu.webp" width="1600" height="1101" alt="Current Lor: chat view with the + menu open, listing Subagents, Artifacts, Pull Requests, Files, Background, Terminal, Computer and Browser" loading="lazy"></div><figcaption>The + menu holds eight items of three different kinds: work in progress, outputs and tools.</figcaption></figure>
 <ul class="finds">
 <li><span class="sev m">Medium</span><div><p><b>Omni Agent sits under New Chat but works across every session.</b> Placed next to New Chat it reads as another kind of chat, not a view across all of them, and the name doesn't say what it covers.</p><div class="tags"><span class="tag">Match real world</span><span class="tag">Recognition over recall</span></div></div></li>
 <li><span class="sev m">Medium</span><div><p><b>Three features share one word.</b> "Compute" (left nav) shows cluster availability, "Computer" in the + menu is a remote desktop, and "Lor Computer" in Settings is the cloud sandbox. The terminal names that sandbox <code>lor-b7f7…</code>.</p><div class="tags"><span class="tag">Consistency</span><span class="tag">Match real world</span></div></div></li>
@@ -236,7 +236,7 @@ code,.mono{font-family:var(--f-mono);font-size:.88em}
 </ul>
 
 <h3 style="margin-top:40px">Seeing what's running</h3>
-<figure><div class="shot"><img src="img/cur-background.webp" width="1316" height="909" alt="Background list open from the + menu showing eighteen finished commands, each beginning cd ~/code/orgsim-lor/orgsim" loading="lazy"></div><figcaption>Background lists 18 finished commands. Each starts with the same <code>cd ~/code/orgsim-lor/orgsim &amp;&amp;</code>, so truncation hides the part that differs.</figcaption></figure>
+<figure><div class="shot"><img src="img/current-session-background-jobs.webp" width="1316" height="909" alt="Current Lor: Background list open from the + menu showing eighteen finished commands, each beginning cd ~/code/orgsim-lor/orgsim" loading="lazy"></div><figcaption>Background lists 18 finished commands. Each starts with the same <code>cd ~/code/orgsim-lor/orgsim &amp;&amp;</code>, so truncation hides the part that differs.</figcaption></figure>
 <ul class="finds">
 <li><span class="sev h">High</span><div><p><b>There is no view of what's live.</b> Subagents shows only a Finished group, and Background is a separate list in a different menu. Neither shows cost, duration or outcome, and there's no way to stop a group of agents at once. At a hundred agents per task, that list is the main way to keep up.</p><div class="tags"><span class="tag">Visibility of status</span><span class="tag">User control</span><span class="tag">Keeping up</span></div></div></li>
 <li><span class="sev m">Medium</span><div><p><b>A red dot can't say whether it matters.</b> Two background rows and a subagent row carry a red dot with no legend and no exit code. Lor's agents retry and unblock themselves, so many of these failures are already handled. The interface should say which ones were and which still need a person.</p><div class="tags"><span class="tag">Recover from errors</span><span class="tag">What to trust</span></div></div></li>
@@ -244,7 +244,7 @@ code,.mono{font-family:var(--f-mono);font-size:.88em}
 </ul>
 
 <h3 style="margin-top:40px">Steering decisions</h3>
-<figure><div class="shot"><img src="img/cur-chat.webp" width="1600" height="1101" alt="Lor chat showing a results table and examples, with the sticky question bubble overlapping the table header" loading="lazy"></div><figcaption>Results arrive as well-written prose and tables, but numbers don't link back to the run, seed or judge verdict behind them.</figcaption></figure>
+<figure><div class="shot"><img src="img/current-session-chat-results.webp" width="1600" height="1101" alt="Current Lor: chat showing a results table and examples, with the sticky question bubble overlapping the table header" loading="lazy"></div><figcaption>Results arrive as well-written prose and tables, but numbers don't link back to the run, seed or judge verdict behind them.</figcaption></figure>
 <ul class="finds">
 <li><span class="sev h">High</span><div><p><b>Spend decisions are prose.</b> The agent ended a run with "Decision for you" and three numbered options costing about $16 to about $480. Choosing means typing a reply. There's no budget context and nothing records which option was chosen.</p><div class="tags"><span class="tag">User control</span><span class="tag">Fitts's law</span><span class="tag">What to try</span></div></div></li>
 <li><span class="sev h">High</span><div><p><b>To learn what a run cost, I had to ask.</b> "What is spend looking like for this run?" got a hand-built table ($28.87 in models). The product has the data in Usage but doesn't show it in the session.</p><div class="tags"><span class="tag">Visibility of status</span><span class="tag">Keeping up</span></div></div></li>
@@ -254,8 +254,8 @@ code,.mono{font-family:var(--f-mono);font-size:.88em}
 
 <h3 style="margin-top:40px">Compute and cost</h3>
 <div class="pair">
-<figure><div class="shot"><img src="img/cur-compute.webp" width="1316" height="909" alt="Compute page listing clusters with availability bars and node blocks" loading="lazy"></div><figcaption>Compute shows availability per region. It reads like a provisioning console, though agents do the provisioning.</figcaption></figure>
-<figure><div class="shot"><img src="img/cur-billing.webp" width="1316" height="909" alt="Billing settings showing a balance of negative 40 cents, 928.40 dollars of compute credits and usage as percentages" loading="lazy"></div><figcaption>Billing shows −$0.40 next to $928.40 in credits, and usage as percentages.</figcaption></figure>
+<figure><div class="shot"><img src="img/current-compute-page.webp" width="1316" height="909" alt="Current Lor: Compute page listing clusters with availability bars and node blocks" loading="lazy"></div><figcaption>Compute shows availability per region. It reads like a provisioning console, though agents do the provisioning.</figcaption></figure>
+<figure><div class="shot"><img src="img/current-settings-billing.webp" width="1316" height="909" alt="Current Lor: Billing settings showing a balance of negative 40 cents, 928.40 dollars of compute credits and usage as percentages" loading="lazy"></div><figcaption>Billing shows −$0.40 next to $928.40 in credits, and usage as percentages.</figcaption></figure>
 </div>
 <ul class="finds">
 <li><span class="sev h">High</span><div><p><b>Agent-provisioned machines leave no trace.</b> Bringing up and releasing nodes is the agent's job, and it did this well: two GPU VMs in one session, both released. My allocations then read "No active jobs or GPU instances", and the only record was a sentence in the chat. If agents provision, the person needs the record and the rules, not the controls.</p><div class="tags"><span class="tag">Visibility of status</span><span class="tag">Keeping up</span></div></div></li>
@@ -265,8 +265,8 @@ code,.mono{font-family:var(--f-mono);font-size:.88em}
 
 <h3 style="margin-top:40px">Workspace</h3>
 <div class="pair">
-<figure><div class="shot"><img src="img/cur-files.webp" width="1600" height="1101" alt="Files panel with a folder tree and a JSON file open" loading="lazy"></div><figcaption>Files: no location, no sizes, and names cut off where they differ.</figcaption></figure>
-<figure><div class="shot"><img src="img/cur-terminal.webp" width="1600" height="1101" alt="Terminal panel with a long hashed hostname and an overlapping status message" loading="lazy"></div><figcaption>Terminal: a 60-character hostname and a status message drawn over the prompt.</figcaption></figure>
+<figure><div class="shot"><img src="img/current-workspace-files.webp" width="1600" height="1101" alt="Current Lor: Files panel with a folder tree and a JSON file open" loading="lazy"></div><figcaption>Files: no location, no sizes, and names cut off where they differ.</figcaption></figure>
+<figure><div class="shot"><img src="img/current-workspace-terminal.webp" width="1600" height="1101" alt="Current Lor: Terminal panel with a long hashed hostname and an overlapping status message" loading="lazy"></div><figcaption>Terminal: a 60-character hostname and a status message drawn over the prompt.</figcaption></figure>
 </div>
 <ul class="finds">
 <li><span class="sev m">Medium</span><div><p><b>Local and cloud look identical.</b> The tree root is <code>code</code> and the prompt is <code>christian@lor-b7f7542cb16d…</code>. The friendly name "Lor Computer" exists only in Settings.</p><div class="tags"><span class="tag">Visibility of status</span><span class="tag">Match real world</span></div></div></li>
@@ -294,7 +294,7 @@ code,.mono{font-family:var(--f-mono);font-size:.88em}
 
 <div class="ba" data-ba>
 <div class="ba-bar"><div class="ba-tabs" role="tablist" aria-label="Compare opening screen"><button role="tab" aria-selected="false" data-k="cur">Current</button><button role="tab" aria-selected="true" data-k="pro">Proposed</button></div><span class="hint">Opening screen</span></div>
-<div class="shot"><img data-k="cur" src="img/cur-home.webp" width="1600" height="1101" alt="Current opening screen: Ready to investigate, with a composer naming the machine and folder" loading="lazy" hidden><img data-k="pro" src="img/pro-lab.webp" width="1600" height="1101" alt="Proposed Lab overview: composer to ask the lab, Needs you, Running, Results since you left, Machines and Spend" loading="lazy"></div>
+<div class="shot"><img data-k="cur" src="img/current-new-chat-home.webp" width="1600" height="1101" alt="Current opening screen: Ready to investigate, with a composer naming the machine and folder" loading="lazy" hidden><img data-k="pro" src="img/proposed-1-lab-overview.webp" width="1600" height="1101" alt="Proposed Lab overview: composer to ask the lab, Needs you, Running, Results since you left, Machines and Spend" loading="lazy"></div>
 <figcaption>Proposed: Lab opens with what needs you, what's running and how many agents, what agents handled on their own, and results since you left. Machines and spend sit to the side. The same order works as Lor's phone view.</figcaption>
 </div>
 
@@ -307,7 +307,7 @@ code,.mono{font-family:var(--f-mono);font-size:.88em}
 
 <div class="ba" data-ba>
 <div class="ba-bar"><div class="ba-tabs" role="tablist" aria-label="Compare command palette"><button role="tab" aria-selected="false" data-k="cur">Current</button><button role="tab" aria-selected="true" data-k="pro">Proposed</button></div><span class="hint">⌘K</span></div>
-<div class="shot"><img data-k="cur" src="img/cur-cmdk.webp" width="1600" height="1101" alt="Current command palette with New Chat, Omni Agent, Go to file and recent chats" loading="lazy" hidden><img data-k="pro" src="img/pro-cmdk.webp" width="1600" height="1101" alt="Proposed command palette with Ask across all sessions, suggestions for the current session, and recent runs with status" loading="lazy"></div>
+<div class="shot"><img data-k="cur" src="img/current-command-palette.webp" width="1600" height="1101" alt="Current command palette with New Chat, Omni Agent, Go to file and recent chats" loading="lazy" hidden><img data-k="pro" src="img/proposed-1-command-palette.webp" width="1600" height="1101" alt="Proposed command palette with Ask across all sessions, suggestions for the current session, and recent runs with status" loading="lazy"></div>
 <figcaption>Proposed ⌘K: Tab asks Lab. Session suggestions surface the open decision, a comparison and the run's spend. Runs and machines become searchable.</figcaption>
 </div>
 
@@ -327,7 +327,7 @@ code,.mono{font-family:var(--f-mono);font-size:.88em}
 <div class="col"><p>With hundreds of agents, the scarce resource is the researcher's attention. The interface should route it: show what needs a person first, show what agents already recovered from so it doesn't read as failure, keep the rest visible but quiet, and never require polling.</p></div>
 <div class="ba" data-ba>
 <div class="ba-bar"><div class="ba-tabs" role="tablist" aria-label="Compare activity"><button role="tab" aria-selected="false" data-k="cur">Current</button><button role="tab" aria-selected="true" data-k="pro">Proposed</button></div><span class="hint">Active session</span></div>
-<div class="shot"><img data-k="cur" src="img/cur-subagents.webp" width="1600" height="1101" alt="Current Subagents popover listing finished subagents only" loading="lazy" hidden><img data-k="pro" src="img/pro-session.webp" width="1600" height="1101" alt="Proposed session with an Activity rail grouped into Needs you, Running with a 24-agent fan-out and Stop controls, Recovered on its own, and Finished" loading="lazy"></div>
+<div class="shot"><img data-k="cur" src="img/current-session-subagents.webp" width="1600" height="1101" alt="Current Subagents popover listing finished subagents only" loading="lazy" hidden><img data-k="pro" src="img/proposed-2-3-session-activity-and-decision.webp" width="1600" height="1101" alt="Proposed session with an Activity rail grouped into Needs you, Running with a 24-agent fan-out and Stop controls, Recovered on its own, and Finished" loading="lazy"></div>
 <figcaption>Proposed: one Activity rail for agents, jobs and machines, grouped Needs you, Running, Recovered on its own, Finished. A fan-out of 24 agents is one row with a progress bar, Stop and Stop all.</figcaption>
 </div>
 <div class="why">
@@ -344,7 +344,7 @@ code,.mono{font-family:var(--f-mono);font-size:.88em}
 <h2>Decisions you can act on</h2>
 <div class="ba" data-ba>
 <div class="ba-bar"><div class="ba-tabs" role="tablist" aria-label="Compare decision"><button role="tab" aria-selected="false" data-k="cur">Current</button><button role="tab" aria-selected="true" data-k="pro">Proposed</button></div><span class="hint">End of a run</span></div>
-<div class="shot"><img data-k="cur" src="img/cur-background.webp" width="1316" height="909" alt="Current chat where the agent lists Decision for you as numbered prose" loading="lazy" hidden><img data-k="pro" src="img/pro-session.webp" width="1600" height="1101" alt="Proposed decision card with three options, each with cost and a button, and a spend summary above" loading="lazy"></div>
+<div class="shot"><img data-k="cur" src="img/current-session-chat-results.webp" width="1600" height="1101" alt="Current Lor: the end of a run arrives as prose and tables, and choices are made by typing a reply" loading="lazy" hidden><img data-k="pro" src="img/proposed-2-3-session-activity-and-decision.webp" width="1600" height="1101" alt="Proposed decision card with three options, each with cost and a button, and a spend summary above" loading="lazy"></div>
 <figcaption>Proposed: the agent's options become a card with cost, budget left and one button per option. Run spend sits above it. Trace links follow each count.</figcaption>
 </div>
 <div class="why">
@@ -361,7 +361,7 @@ code,.mono{font-family:var(--f-mono);font-size:.88em}
 <div class="col"><p>Today's composer already names the machine and folder, which is the right instinct. Extend it with the decisions that are expensive to reverse later, and show new users what Lor is for with Mirendil's own example prompts: overnight ablations, a repo-wide security audit with a PR per fix, reproducing a paper's table on 8 GPUs.</p></div>
 <div class="ba" data-ba>
 <div class="ba-bar"><div class="ba-tabs" role="tablist" aria-label="Compare new session"><button role="tab" aria-selected="false" data-k="cur">Current</button><button role="tab" aria-selected="true" data-k="pro">Proposed</button></div><span class="hint">New chat</span></div>
-<div class="shot"><img data-k="cur" src="img/cur-home.webp" width="1600" height="1101" alt="Current new chat composer with machine and folder" loading="lazy" hidden><img data-k="pro" src="img/pro-start.webp" width="1600" height="1101" alt="Proposed new chat with example prompts and the machine picker open, showing a default machine and GPU policy options" loading="lazy"></div>
+<div class="shot"><img data-k="cur" src="img/current-new-chat-home.webp" width="1600" height="1101" alt="Current new chat composer with machine and folder" loading="lazy" hidden><img data-k="pro" src="img/proposed-4-new-chat-guardrails.webp" width="1600" height="1101" alt="Proposed new chat with example prompts and the machine picker open, showing a default machine and GPU policy options" loading="lazy"></div>
 <figcaption>Proposed: the picker sets a default machine (agents can still use any machine you've added) and a GPU policy. Project and budget sit on the same line. Example prompts fill the empty state.</figcaption>
 </div>
 <h3>GPU policy options</h3>
@@ -378,12 +378,12 @@ code,.mono{font-family:var(--f-mono);font-size:.88em}
 <div class="col"><p>Lor comes with its own compute, and agents request, set up and release nodes themselves. So the Machines view shouldn't be a provisioning console. It should show what agents used, what it cost and which chat it served, and hold the rules they work within. Machines and Spend become tabs of Lab, next to the runs that use them. Payment details stay in Settings › Billing.</p></div>
 <div class="ba" data-ba>
 <div class="ba-bar"><div class="ba-tabs" role="tablist" aria-label="Compare compute"><button role="tab" aria-selected="false" data-k="cur">Current</button><button role="tab" aria-selected="true" data-k="pro">Proposed</button></div><span class="hint">Machines</span></div>
-<div class="shot"><img data-k="cur" src="img/cur-compute.webp" width="1316" height="909" alt="Current Compute page with cluster availability" loading="lazy" hidden><img data-k="pro" src="img/pro-machines.webp" width="1600" height="1101" alt="Proposed Lab Machines tab with a summary, a machine table including GPU nodes agents brought up and released, and rules for agents" loading="lazy"></div>
+<div class="shot"><img data-k="cur" src="img/current-compute-page.webp" width="1316" height="909" alt="Current Compute page with cluster availability" loading="lazy" hidden><img data-k="pro" src="img/proposed-5-lab-machines.webp" width="1600" height="1101" alt="Proposed Lab Machines tab with a summary, a machine table including GPU nodes agents brought up and released, and rules for agents" loading="lazy"></div>
 <figcaption>Proposed: machines agents can use, including GPU nodes they brought up and released, with time, cost and the chat that used them. Below, the rules: when to ask, which accelerators, when to release idle nodes, and a daily limit. Add a machine is the only manual step.</figcaption>
 </div>
 <div class="ba" data-ba>
 <div class="ba-bar"><div class="ba-tabs" role="tablist" aria-label="Compare spend"><button role="tab" aria-selected="false" data-k="cur">Current</button><button role="tab" aria-selected="true" data-k="pro">Proposed</button></div><span class="hint">Spend</span></div>
-<div class="shot"><img data-k="cur" src="img/cur-billing.webp" width="1316" height="909" alt="Current Billing page" loading="lazy" hidden><img data-k="pro" src="img/pro-spend.webp" width="1600" height="1101" alt="Proposed Lab Spend tab with today, 30-day and balance totals, a models versus machines bar, a table by project and chat, and the Lab dock open" loading="lazy"></div>
+<div class="shot"><img data-k="cur" src="img/current-settings-billing.webp" width="1316" height="909" alt="Current Billing page" loading="lazy" hidden><img data-k="pro" src="img/proposed-5-lab-spend.webp" width="1600" height="1101" alt="Proposed Lab Spend tab with today, 30-day and balance totals, a models versus machines bar, a table by project and chat, and the Lab dock open" loading="lazy"></div>
 <figcaption>Proposed: dollars instead of percentages, one total across models and machines, spend by project and chat, and the UTC reset explained. Lor is free during the beta, so this is the moment to make cost per run a habit before it costs anything.</figcaption>
 </div>
 <h3>Rules for agents</h3>
@@ -405,7 +405,7 @@ code,.mono{font-family:var(--f-mono);font-size:.88em}
 <h2>A workspace that says where it is</h2>
 <div class="ba" data-ba>
 <div class="ba-bar"><div class="ba-tabs" role="tablist" aria-label="Compare files"><button role="tab" aria-selected="false" data-k="cur">Current</button><button role="tab" aria-selected="true" data-k="pro">Proposed</button></div><span class="hint">Files and terminal</span></div>
-<div class="shot"><img data-k="cur" src="img/cur-files.webp" width="1600" height="1101" alt="Current files panel" loading="lazy" hidden><img data-k="pro" src="img/pro-files.webp" width="1600" height="1101" alt="Proposed files panel with a cloud location badge, breadcrumb, size and modified columns, author line, and terminal named after the machine" loading="lazy"></div>
+<div class="shot"><img data-k="cur" src="img/current-workspace-files.webp" width="1600" height="1101" alt="Current files panel" loading="lazy" hidden><img data-k="pro" src="img/proposed-6-workspace-files-and-terminal.webp" width="1600" height="1101" alt="Proposed files panel with a cloud location badge, breadcrumb, size and modified columns, author line, and terminal named after the machine" loading="lazy"></div>
 <figcaption>Proposed: location badge and path, size and modified columns, who wrote the file, and a terminal named after its machine that logs restarts.</figcaption>
 </div>
 <div class="why">
